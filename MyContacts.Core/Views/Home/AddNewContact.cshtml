@@ -1,0 +1,56 @@
+﻿@model ContactFormViewModel
+<h1>Here we add a new Contact</h1>
+
+
+
+<form asp-action="AddNewContact" method="post" class="form-horizontal" role="form">
+
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    <div class="form-group">
+        <label asp-for="Contact.FullName" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Contact.FullName" class="form-control" />
+            <span asp-validation-for="Contact.FullName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Contact.Address" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Contact.Address" class="form-control" />
+            <span asp-validation-for="Contact.Address" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Contact.Phone" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Contact.Phone" class="form-control" />
+            <span asp-validation-for="Contact.Phone" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="Contact.City" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select asp-for="Contact.City.Id" class="form-control" 
+                    asp-items="@(new SelectList(Model.Cities, nameof(Contact.City.Id), nameof(Contact.City.Name)))">
+            </select>
+            <span asp-validation-for="Contact.City" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Complete order" />
+        </div>
+    </div>
+
+</form>

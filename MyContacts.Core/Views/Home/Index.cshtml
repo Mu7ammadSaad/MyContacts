@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Contact>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+  
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+        <tr>
+            <td>@c.FullName</td>
+            <td>@c.City.Name</td>
+            <td>@c.Address</td>
+            <td>@c.Phone</td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+<a class="btn btn-primary"
+   asp-controller="Home"
+   asp-action="AddNewContact">Add New Contact</a>
+
+
+
